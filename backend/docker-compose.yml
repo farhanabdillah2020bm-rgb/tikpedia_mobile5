@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:17
+    container_name: tikpedia-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: tikpedia
+      POSTGRES_USER: tikpedia
+      POSTGRES_PASSWORD: tikpedia
+    ports:
+      - "5432:5432"
+    volumes:
+      - tikpedia_data:/var/lib/postgresql/data
+volumes:
+  tikpedia_data:
